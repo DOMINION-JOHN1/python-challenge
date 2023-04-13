@@ -6,3 +6,4 @@ print(shop)
 
 a=shop['apple'] + shop['banana']
 print(a)
+
