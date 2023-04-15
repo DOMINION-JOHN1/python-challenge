@@ -1,1 +1,1 @@
-print("Bomb the world")
+print("Save the world")
