@@ -1,0 +1,1 @@
+print("Bomb the world")
