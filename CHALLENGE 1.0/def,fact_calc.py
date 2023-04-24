@@ -4,4 +4,4 @@ def fact_calc(num):
     for i in range(1, num+1 ):
         factorial = factorial * i
     print(f"The factorial of {num} is:{factorial} ")
-fact_calc(0)
+fact_calc('num')
