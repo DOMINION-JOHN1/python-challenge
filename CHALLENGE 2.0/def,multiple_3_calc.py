@@ -1,8 +1,7 @@
-def mul_calc(num):
+def multi_calc(*array):
     num=float(input("enter value here; "))
-    arrayA=range(3,100,5)
-    for i in arrayA:
-        print(i%num==0)
+    for i in array:
+         print((i%num)==0)
 
 
-mul_calc('num')
+multi_calc(7,6,5,4,3,6,7,8,7,67,65,43,89)
