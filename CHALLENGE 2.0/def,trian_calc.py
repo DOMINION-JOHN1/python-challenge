@@ -1,4 +1,4 @@
-def trian_calc (A,B,C):
+def trian_calc ():
     A=float(input("insert a number here; "))
     B=float(input("insert a number here; "))
     C=float(input("insert a number here; "))
@@ -7,7 +7,7 @@ def trian_calc (A,B,C):
     else:
         print(False)
 
-trian_calc("A","B","C")
+trian_calc()
 
 
 
