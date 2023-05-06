@@ -4,19 +4,26 @@ def guess():
     num=randrange(1,1000)
     if player>num:
          print('Too high, try again')
-    elif player<num:
-         print('Too low, try again')
     else:
-        print('Congratulations, you got the number')
+         print("Too low. Try again.")
+    player= int(input("guess a number: "))
+    print("Congratulations! You guessed the number!")
 
 
 def replay():
     return input('Do you want to play again? Enter Yes or No: ').lower().startswith('y')
 
 
-
 print('Welcome to Guess the Number!')
+num_guess=0
 while True:
     guess()
+    num_guess+=1
+    if num_guess <= 10:
+        print("Either you know the secret or you got lucky!")
+    elif num_guess > 10:
+        print("You should be able to do better!")
+    else:
+        print("Aha! You know the secret!")
     if not replay():
         break
