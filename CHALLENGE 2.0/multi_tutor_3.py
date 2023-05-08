@@ -22,25 +22,14 @@ def multi_tutor():
     good=good_response[randrange(1,4)]
     poor=bad_response[randrange(1,4)]
     x, y = randrange(1, 10), randrange(1, 10)
-    correct_count = 0
-    incorrect_count = 0
     print(f'how much is {x} time {y}?')
     answer = x * y
-    while True:
-        if correct_count + incorrect_count < 10:
-            student = int(input("what is the answer "))
-            if answer == student:
-                print(good)
-                correct_count += 1
-            else:
-                print(poor)
-                incorrect_count += 1
-        percentage = correct_count / 10 * 100
-        if percentage < 75:
-            print("Please ask your teacher for extra help.")
-        else:
-            print("Congratulations, you are ready to go to the next level!")
-
+    student = int(input("what is the answer "))
+    if answer == student:
+        print(good)
+        repeat()
+    else:
+        print(poor)
 
 
 multi_tutor()
