@@ -1,19 +1,5 @@
 import random
 from random import randrange
-def repeat():
-    x, y = randrange(1, 10), randrange(1, 10)
-    print(f'how much is {x} time {y}?')
-    answer = x * y
-    student = int(input("what is the answer "))
-    x, y = randrange(1, 10), randrange(1, 10)
-    print(f'how much is {x} time {y}?')
-    answer = x * y
-    student = int(input("what is the answer "))
-    if answer == student:
-        print('very good')
-        repeat()
-    else:
-        print('No,please try again')
 
 
 def multi_tutor():
@@ -25,7 +11,7 @@ def multi_tutor():
     incorrect_count = 0
 
     while True:
-        x, y = randrange(1, 10), randrange(1, 10)
+        x, y = randrange(10, 999), randrange(10, 999)
         print(f'how much is {x} time {y}?')
         answer = x * y
         student = int(input("what is the answer "))
@@ -37,13 +23,11 @@ def multi_tutor():
             correct_count += 1
             if correct_count + incorrect_count == 10:
                 percentage = correct_count / (correct_count + incorrect_count)
-                if percentage > 0.75:
-                   print("Congratulations, you are ready to go to the next level!")
-                   break
-                elif percentage<0.75:
+                if percentage < 0.75:
                    print("Please ask your teacher for extra help.")
                 else:
-                   break
+                    print("Congratulations, you are ready to go to the next level!")
+                break
 
 multi_tutor()
 
