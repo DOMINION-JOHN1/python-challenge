@@ -1,5 +1,6 @@
-def string_sorter(*args):
+def remove_duplicates(*args):
     args=str(input("insert strings here: "))
     print(set(args))
 
-string_sorter()
+remove_duplicates()
+
