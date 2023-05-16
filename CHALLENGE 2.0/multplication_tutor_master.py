@@ -8,7 +8,7 @@ def generate_question():
     answer = num1 * num2
     return question, answer
 
-def main():
+def main_game():
     num_correct = 0
     num_incorrect = 0
     print("Welcome to the multiplication game!")
@@ -30,4 +30,4 @@ def main():
                     print("Congratulations, you are ready to go to the next level!")
                     break
                 break
-main()
+main_game()

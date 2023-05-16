@@ -1,9 +1,5 @@
-def calculate_distance():
-    x1=float(input("enter value here; "))
-    y1=float(input("enter value here; "))
-    x2 = float(input("enter value here; "))
-    y2=float(input("enter value here; "))
-    d=(((x2-x1)**2) +((y2-y1)**2))**0.5
-    print(d)
-
-calculate_distance()
+def calculate_distance(x1,y1,x2,y2):
+    distance=(((x2-x1)**2) +((y2-y1)**2))**0.5
+    print(distance)
+## call the function and input the desired variables
+calculate_distance(4,5,6,7)

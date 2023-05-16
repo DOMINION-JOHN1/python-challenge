@@ -39,7 +39,7 @@ import random
 good=random.choice(["Very good!", "Excellent!", "Nice work!", "Keep up the good work!"])
 fail=random.choice(["No. Please try again.", "Wrong. Try once more.", "Don't give up!", "No. Keep trying."])
 
-def main():
+def main_game():
     num_correct = 0
     num_incorrect = 0
     print("Welcome to the multiplication game!")
@@ -65,5 +65,5 @@ def main():
                     break
                 break
 
-main()
+main_game()
 

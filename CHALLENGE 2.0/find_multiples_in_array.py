@@ -1,11 +1,8 @@
-def find_multiples_in_array():
-    num = int(input("Enter a number: "))
-    arr = input("Enter a list of numbers separated by spaces: ").split(',')
-    arr = [int(x) for x in arr]
-    for x in arr:
-        if x % num == 0:
-            print(x)
+def get_multiples(arrayA,num):
+    arrayA = [2, 4, 6, 8, 10, 12, 14]
+    num = 2
+    return [x for x in arrayA if x % num == 0]
+result = get_multiples('arrayA','num')
+print(result)
 
-
-find_multiples_in_array()
 

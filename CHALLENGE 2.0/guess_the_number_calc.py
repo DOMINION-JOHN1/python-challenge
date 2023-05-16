@@ -13,17 +13,18 @@ def guess():
 def replay():
     return input('Do you want to play again? Enter Yes or No: ').lower().startswith('y')
 
-
-print('Welcome to Guess the Number!')
-num_guess=0
-while True:
-    guess()
-    num_guess+=1
-    if num_guess <= 10:
-        print("Either you know the secret or you got lucky!")
-    elif num_guess > 10:
-        print("You should be able to do better!")
-    else:
-        print("Aha! You know the secret!")
-    if not replay():
-        break
+def guess_num():
+    print('Welcome to Guess the Number!')
+    num_guess=0
+    while True:
+        guess()
+        num_guess+=1
+        if num_guess <= 10:
+            print("Either you know the secret or you got lucky!")
+        elif num_guess > 10:
+            print("You should be able to do better!")
+        else:
+            print("Aha! You know the secret!")
+        if not replay():
+            break
+guess_num()
