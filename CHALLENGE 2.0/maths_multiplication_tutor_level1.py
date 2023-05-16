@@ -17,5 +17,5 @@ def main_game():
             question, answer = generate_question()
         else:
             print("No. Please try again.")
-            break
+
 main_game()
