@@ -27,28 +27,29 @@ def generate_question(difficulty,problem):
         num1 = random.randint(100, 999)
         num2 = random.randint(100, 999)
     if problem == 1:
-        return f"How much is {num1} plus {num2}?", num1 + num2
+        return f"How much is {num1} plus {num2}?", (num1 + num2).__str__()
     elif problem == 2:
-        return f"How much is {num1} minus {num2}?", num1 - num2
+        return f"How much is {num1} minus {num2}?", (num1 - num2).__str__()
     elif problem == 3:
-        return f"How much is {num1} times {num2}?", num1 * num2
+        return f"How much is {num1} times {num2}?", (num1 * num2).__str__()
     else:
-        return f"How much is {num1} divided by {num2}?", num1 // num2
+        return f"How much is {num1} divided by {num2}?", (num1 // num2).__str__()
 
 import random
 good=random.choice(["Very good!", "Excellent!", "Nice work!", "Keep up the good work!"])
 fail=random.choice(["No. Please try again.", "Wrong. Try once more.", "Don't give up!", "No. Keep trying."])
 
-def main_game():
+def main():
     num_correct = 0
     num_incorrect = 0
     print("Welcome to the multiplication game!")
     problem=problem_type()
     difficulty =get_difficulty_level()
+    question, answer = generate_question(difficulty, problem)
     while True:
-        question, answer = generate_question(difficulty,problem)
+
         print(question)
-        user_input = int(input())
+        user_input = str(input())
         if user_input == answer:
             print(good)
             num_correct+=1
@@ -62,8 +63,8 @@ def main_game():
                     print("Please ask your teacher for extra help.")
                 else:
                     print("Congratulations, you are ready to go to the next level!")
-                    break
-                break
 
-main_game()
+
+
+main()
 
