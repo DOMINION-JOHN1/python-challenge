@@ -6,17 +6,18 @@ def generate_question():
     num2 = random.randint(0, 9)
     question = f"How much is {num1} times {num2}? "
     answer = num1 * num2
-    return question, answer
+    correct_answer=answer.__str__()
+    return question, correct_answer
 
 def main_game():
     print("Welcome to the multiplication game!")
-    question, answer = generate_question()
+    question, correct_answer = generate_question()
     while True:
-        user_input = int(input(question))
-        if user_input == answer:
+        user_input = str(input(question))
+        if user_input == correct_answer:
             print(good)
-            question, answer = generate_question()
+            question, correct_answer = generate_question()
         else:
             print(fail)
-            break
+
 main_game()
