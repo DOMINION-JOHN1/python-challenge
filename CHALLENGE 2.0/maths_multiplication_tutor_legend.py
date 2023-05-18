@@ -1,3 +1,8 @@
+import random
+good = random.choice(["Very good!", "Excellent!", "Nice work!", "Keep up the good work!"])
+fail = random.choice(["No. Please try again.", "Wrong. Try once more.", "Don't give up!", "No. Keep trying."])
+
+
 def problem_type():
     print("Please select a problem type:")
     print("1 - Addition problems only")
@@ -7,6 +12,7 @@ def problem_type():
     print("5 - Mixture of all problem types")
     return int(input('choose an option'))
 
+
 def get_difficulty_level():
     print("Please select a difficulty level:")
     print("1 - Single-digit problems only")
@@ -15,8 +21,7 @@ def get_difficulty_level():
     return int(input('choose an option '))
 
 
-
-def generate_question(difficulty,problem):
+def generate_question(difficulty, problem):
     if difficulty == 1:
         num1 = random.randint(0, 9)
         num2 = random.randint(0, 9)
@@ -35,16 +40,13 @@ def generate_question(difficulty,problem):
     else:
         return f"How much is {num1} divided by {num2}?", (num1 // num2).__str__()
 
-import random
-good=random.choice(["Very good!", "Excellent!", "Nice work!", "Keep up the good work!"])
-fail=random.choice(["No. Please try again.", "Wrong. Try once more.", "Don't give up!", "No. Keep trying."])
 
 def main():
     num_correct = 0
     num_incorrect = 0
     print("Welcome to the multiplication game!")
-    problem=problem_type()
-    difficulty =get_difficulty_level()
+    problem = problem_type()
+    difficulty = get_difficulty_level()
     question, answer = generate_question(difficulty, problem)
     while True:
 
@@ -52,11 +54,11 @@ def main():
         user_input = str(input())
         if user_input == answer:
             print(good)
-            num_correct+=1
-            question, answer = generate_question(difficulty,problem)
+            num_correct += 1
+            question, answer = generate_question(difficulty, problem)
         else:
             print(fail)
-            num_incorrect+=1
+            num_incorrect += 1
             if num_correct + num_incorrect == 10:
                 percentage_correct = num_correct / (num_correct + num_incorrect) * 100
                 if percentage_correct < 75:
@@ -65,6 +67,4 @@ def main():
                     print("Congratulations, you are ready to go to the next level!")
 
 
-
 main()
-

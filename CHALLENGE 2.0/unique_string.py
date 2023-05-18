@@ -1,4 +1,5 @@
-def remove_duplicates(*args):
-    print(set(args))
-remove_duplicates('a','b','c','d','d')
+def remove_duplicates(string_list):
+    return set(string_list)
 
+
+print(remove_duplicates('namedominionjohneleojo'))
