@@ -1,9 +1,21 @@
-def triangle_num(num1, num2, num3):
-    if (num1 + num2 > num3) and (num2 + num3 > num1) and (num3 + num1 > num2):
+def check_triangle(side1, side2, side3):
+    # Check if any values are missing
+    if None in [side1, side2, side3]:
+        raise ValueError("Some values are missing. Please provide three numbers.")
+
+    # Convert strings to numbers if necessary
+    if isinstance(side1, str):
+        side1 = int(side1)
+    if isinstance(side2, str):
+        side2 = int(side2)
+    if isinstance(side3, str):
+        side3 = int(side3)
+
+    # Check triangle inequality
+    if side1+side2 > side3 and side2+side3 > side1 and side3+side1 > side2:
         return True
     else:
         return False
 
 
-# you can change the parameters of this function to test different numbers
-print(triangle_num(4, 8, 6))
+print(check_triangle(4, 5, '8'))
