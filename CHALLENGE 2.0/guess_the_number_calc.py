@@ -1,32 +1,46 @@
-def guess():
-    from random import randrange
-    player = int(input("guess a number: "))
-    num = randrange(1, 1000)
-    if player > num:
-        print('Too high, try again')
-    else:
-        print("Too low. Try again.")
-    return int(input("guess a number: "))
+import random
 
 
-def replay():
-    return input('Do you want to play again? Enter Yes or No: ').lower().startswith('y')
+def play_guess_the_number():
+    secret_number = random.randint(1, 1000)
+    attempts = 0
 
-
-def guess_num():
-    print('Welcome to Guess the Number!')
-    num_guess = 0
     while True:
-        guess()
-        num_guess += 1
-        if num_guess <= 10:
-            print("Either you know the secret or you got lucky!")
-        elif num_guess > 10:
-            print("You should be able to do better!")
+        try:
+            guess = int(input("Guess a number between 1 and 1000: "))
+        except ValueError:
+            print("Invalid input. Please enter a valid number.")
+            continue
+
+        attempts += 1
+
+        if guess < secret_number:
+            print("Too low. Try again.")
+        elif guess > secret_number:
+            print("Too high. Try again.")
         else:
-            print("Aha! You know the secret!")
-        if not replay():
+            print("Congratulations! You guessed the number!")
             break
+    if attempts <= 10:
+        if attempts == 10:
+            print("Aha! You know the secret!")
+        else:
+            print("Either you know the secret or you got lucky!")
+    if attempts > 10:
+        print("You should be able to do better!")
 
 
-guess_num()
+def play_again():
+    while True:
+        play_again=input("Do you want to play again? (yes/no): ")
+        if play_again.lower() == "yes" :
+            play_guess_the_number()
+        elif play_again.lower() == "no":
+            print("Thank you for playing. Goodbye!")
+            break
+        else:
+            print("Invalid input. Please enter 'yes' or 'no'.")
+
+
+play_guess_the_number()
+play_again()
