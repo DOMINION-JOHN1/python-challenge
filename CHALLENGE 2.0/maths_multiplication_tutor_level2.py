@@ -1,6 +1,4 @@
 import random
-good = random.choice(["Very good!", "Excellent!", "Nice work!", "Keep up the good work!"])
-fail = random.choice(["No. Please try again.", "Wrong. Try once more.", "Don't give up!", "No. Keep trying."])
 
 
 def generate_question():
@@ -12,16 +10,24 @@ def generate_question():
     return question, correct_answer
 
 
+def get_response(is_correct):
+    if is_correct:
+        responses = ["Very good!", "Excellent!", "Nice work!", "Keep up the good work!"]
+    else:
+        responses = ["No. Please try again.", "Wrong. Try once more.", "Don't give up!", "No. Keep trying."]
+    return random.choice(responses)
+
+
 def main_game():
     print("Welcome to the multiplication game!")
     question, correct_answer = generate_question()
     while True:
         user_input = str(input(question))
         if user_input == correct_answer:
-            print(good)
+            print(get_response(True))
             question, correct_answer = generate_question()
         else:
-            print(fail)
+            print(get_response(False))
 
 
 main_game()
