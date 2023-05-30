@@ -1,6 +1,12 @@
 import random
-good = random.choice(["Very good!", "Excellent!", "Nice work!", "Keep up the good work!"])
-fail = random.choice(["No. Please try again.", "Wrong. Try once more.", "Don't give up!", "No. Keep trying."])
+
+
+def get_response(is_correct):
+    if is_correct:
+        responses = ["Very good!", "Excellent!", "Nice work!", "Keep up the good work!"]
+    else:
+        responses = ["No. Please try again.", "Wrong. Try once more.", "Don't give up!", "No. Keep trying."]
+    return random.choice(responses)
 
 
 def generate_question():
@@ -20,18 +26,22 @@ def main_game():
     while True:
         user_input = str(input(question))
         if user_input == correct_answer:
-            print(good)
+            print(get_response(True))
             num_correct += 1
             question, correct_answer = generate_question()
         else:
-            print(fail)
+            print(get_response(False))
             num_incorrect += 1
+
             if num_correct + num_incorrect == 10:
                 percentage_correct = num_correct / (num_correct + num_incorrect) * 100
                 if percentage_correct < 75:
                     print("Please ask your teacher for extra help.")
+
                 else:
                     print("Congratulations, you are ready to go to the next level!")
+                    break
+                break
 
 
 main_game()
