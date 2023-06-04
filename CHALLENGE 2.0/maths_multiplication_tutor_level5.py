@@ -31,14 +31,27 @@ def generate_question(difficulty, problem):
     elif difficulty == 3:
         num1 = random.randint(100, 999)
         num2 = random.randint(100, 999)
+
     if problem == 1:
-        return f"How much is {num1} plus {num2}?", (num1 + num2).__str__()
+        question = f"How much is {num1} plus {num2}?"
+        answer = (num1 + num2)
+
     elif problem == 2:
-        return f"How much is {num1} minus {num2}?", (num1 - num2).__str__()
+        question = f"How much is {num1} minus {num2}?"
+        answer = (num1 - num2)
+
     elif problem == 3:
-        return f"How much is {num1} times {num2}?", (num1 * num2).__str__()
+        question = f"How much is {num1} times {num2}?"
+        answer = (num1 * num2)
+
+    elif problem == 4:
+        question = f"How much is {num1} divided by {num2}?( to 2 decimal place)"
+        answer = round(num1 / num2, 2)
+
     else:
-        return f"How much is {num1} divided by {num2}?", (num1 // num2).__str__()
+        question = f" {num1} plus {num2} times {num1} all minus {num1} divide by {num2}?"
+        answer = (((num1 + num2) * num1) - num1 // num2)
+    return question, answer
 
 
 def main():
@@ -49,9 +62,12 @@ def main():
     difficulty = get_difficulty_level()
     question, answer = generate_question(difficulty, problem)
     while True:
-
         print(question)
-        user_input = str(input())
+        try:
+            user_input = float(input())
+        except ValueError:
+            print("Invalid input. Please round your answer to decimal place.")
+
         if user_input == answer:
             print(good)
             num_correct += 1
@@ -65,6 +81,8 @@ def main():
                     print("Please ask your teacher for extra help.")
                 else:
                     print("Congratulations, you are ready to go to the next level!")
+                    break
+                break
 
 
 main()
