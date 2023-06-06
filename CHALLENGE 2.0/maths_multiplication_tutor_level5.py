@@ -60,23 +60,23 @@ def generate_question(difficulty, problem):
     else:
         problem = random.randint(1, 4)
         if problem == 1:
-            question=f"How much is {num1} plus {num2}?"
-            answer=(num1+num2)
+            question = f"How much is {num1} plus {num2}?"
+            answer = (num1+num2)
             return question, answer
 
         elif problem == 2:
-            question=f"How much is {num1} minus {num2}?"
-            answer=(num1-num2)
+            question = f"How much is {num1} minus {num2}?"
+            answer = (num1-num2)
             return question, answer
 
         elif problem == 3:
-            question=f"How much is {num1} times {num2}?"
-            answer=(num1 * num2)
+            question = f"How much is {num1} times {num2}?"
+            answer = (num1 * num2)
             return question, answer
 
         elif problem == 4:
-            question=f"How much is {num1} divided by {num2}?( to 2 decimal place)"
-            answer=round(num1 / num2, 2)
+            question = f"How much is {num1} divided by {num2}?( to 2 decimal place)"
+            answer = round(num1 / num2, 2)
             return question, answer
 
     return question, answer
