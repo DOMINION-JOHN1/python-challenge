@@ -1,4 +1,6 @@
 import random
+
+
 def get_response(is_correct):
     if is_correct:
         responses = ["Very good!", "Excellent!", "Nice work!", "Keep up the good work!"]
@@ -39,22 +41,44 @@ def generate_question(difficulty, problem):
     if problem == 1:
         question = f"How much is {num1} plus {num2}?"
         answer = (num1 + num2)
+        return question, answer
 
     elif problem == 2:
         question = f"How much is {num1} minus {num2}?"
         answer = (num1 - num2)
+        return question, answer
 
     elif problem == 3:
         question = f"How much is {num1} times {num2}?"
         answer = (num1 * num2)
+        return question, answer
 
     elif problem == 4:
         question = f"How much is {num1} divided by {num2}?( to 2 decimal place)"
         answer = round(num1 / num2, 2)
-
+        return question, answer
     else:
-        question = f" {num1} plus {num2} times {num1} all minus {num1} divide by {num2}?"
-        answer = (((num1 + num2) * num1) - num1 // num2)
+        problem = random.randint(1, 4)
+        if problem == 1:
+            question=f"How much is {num1} plus {num2}?"
+            answer=(num1+num2)
+            return question, answer
+
+        elif problem == 2:
+            question=f"How much is {num1} minus {num2}?"
+            answer=(num1-num2)
+            return question, answer
+
+        elif problem == 3:
+            question=f"How much is {num1} times {num2}?"
+            answer=(num1 * num2)
+            return question, answer
+
+        elif problem == 4:
+            question=f"How much is {num1} divided by {num2}?( to 2 decimal place)"
+            answer=round(num1 / num2, 2)
+            return question, answer
+
     return question, answer
 
 
@@ -76,11 +100,11 @@ def main():
         if user_input == answer:
             print(get_response(True))
             num_correct += 1
-            question, answer=generate_question(difficulty, problem)
+            question, answer = generate_question(difficulty, problem)
         else:
             print(get_response(False))
             num_incorrect += 1
-            question, answer=generate_question(difficulty, problem)
+            question, answer = generate_question(difficulty, problem)
             if num_correct + num_incorrect == 10:
                 percentage_correct = num_correct / (num_correct + num_incorrect) * 100
                 if percentage_correct < 75:
