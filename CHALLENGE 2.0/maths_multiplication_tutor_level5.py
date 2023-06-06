@@ -1,6 +1,10 @@
 import random
-good = random.choice(["Very good!", "Excellent!", "Nice work!", "Keep up the good work!"])
-fail = random.choice(["No. Please try again.", "Wrong. Try once more.", "Don't give up!", "No. Keep trying."])
+def get_response(is_correct):
+    if is_correct:
+        responses = ["Very good!", "Excellent!", "Nice work!", "Keep up the good work!"]
+    else:
+        responses = ["No. Please try again.", "Wrong. Try once more.", "Don't give up!", "No. Keep trying."]
+    return random.choice(responses)
 
 
 def problem_type():
@@ -67,14 +71,16 @@ def main():
             user_input = float(input())
         except ValueError:
             print("Invalid input. Please round your answer to decimal place.")
+            continue
 
         if user_input == answer:
-            print(good)
+            print(get_response(True))
             num_correct += 1
-            question, answer = generate_question(difficulty, problem)
+            question, answer=generate_question(difficulty, problem)
         else:
-            print(fail)
+            print(get_response(False))
             num_incorrect += 1
+            question, answer=generate_question(difficulty, problem)
             if num_correct + num_incorrect == 10:
                 percentage_correct = num_correct / (num_correct + num_incorrect) * 100
                 if percentage_correct < 75:
