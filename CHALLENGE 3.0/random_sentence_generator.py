@@ -10,6 +10,5 @@ def generate_sentence():
     sentence = [random.choice(articles), random.choice(nouns), random.choice(verbs), random.choice(prepositions), random.choice(articles), random.choice(nouns)]
     return " ".join(sentence).capitalize() + "."
 
+[print(generate_sentence()) for _ in range(20)]
 
-for _ in range(20):
-    print(generate_sentence())
