@@ -24,6 +24,7 @@ def generate_password(length):
     password = ''.join(password_list)
     return password
 
+
 while True:
     try:
         length = int(input("Enter the desired password length: "))
