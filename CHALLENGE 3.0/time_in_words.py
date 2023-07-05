@@ -1,4 +1,6 @@
 def time_in_words(hour, minute):
+    if not isinstance(hour, int) or not isinstance(minute, int):
+        raise TypeError("Hour and minute must be integers.")
 
     if minute == 0:
         return f"{hour % 12} o'clock"
@@ -18,4 +20,5 @@ def time_in_words(hour, minute):
         return f"{60-minute} minutes to {(hour+1) % 12}"
 
 
-print(time_in_words(13, 0))
+# time converter a 12 hours timer
+print(time_in_words(13, 00))
