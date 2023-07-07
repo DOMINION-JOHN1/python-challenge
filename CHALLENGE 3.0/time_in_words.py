@@ -1,4 +1,4 @@
-def time_in_words(hour, minute):
+def time_converter(hour, minute):
     if not isinstance(hour, int) or not isinstance(minute, int):
         raise TypeError("Hour and minute must be integers.")
 
@@ -21,4 +21,4 @@ def time_in_words(hour, minute):
 
 
 # time converter a 12 hours timer
-print(time_in_words(13, 00))
+print(time_converter(13, 00))
