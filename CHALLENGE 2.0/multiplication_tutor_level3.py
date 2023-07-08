@@ -33,15 +33,14 @@ def main_game():
             print(get_response(False))
             num_incorrect += 1
             question, correct_answer = generate_question()
-            if num_correct + num_incorrect == 10:
-                percentage_correct = num_correct / (num_correct + num_incorrect) * 100
-                if percentage_correct < 75:
-                    print("Please ask your teacher for extra help.")
-
-                else:
-                    print("Congratulations, you are ready to go to the next level!")
-                    break
+        if num_correct + num_incorrect == 10:
+            percentage_correct = num_correct / (num_correct + num_incorrect) * 100
+            if percentage_correct < 75:
+                print("Please ask your teacher for extra help.")
+            else:
+                print("Congratulations, you are ready to go to the next level!")
                 break
+            break
 
 
 main_game()
