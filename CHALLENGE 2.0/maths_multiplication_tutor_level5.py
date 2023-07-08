@@ -75,13 +75,14 @@ def generate_question(difficulty, problem):
             return question, answer
 
         elif problem == 4:
-            question = f"How much is {num1} divided by {num2}?( to 2 decimal place)"
-            answer = round(num1 / num2, 2)
-            return question, answer
+            if num2 != 0:
+                question = f"How much is {num1} divided by {num2}?( to 2 decimal place)"
+                answer = round(num1 / num2, 2)
+                return question, answer
+            else:
+                return "Cannot divide by zero.", None
 
-    return question, answer
-
-
+            
 def main():
     num_correct = 0
     num_incorrect = 0
@@ -105,14 +106,14 @@ def main():
             print(get_response(False))
             num_incorrect += 1
             question, answer = generate_question(difficulty, problem)
-            if num_correct + num_incorrect == 10:
-                percentage_correct = num_correct / (num_correct + num_incorrect) * 100
-                if percentage_correct < 75:
-                    print("Please ask your teacher for extra help.")
-                else:
-                    print("Congratulations, you are ready to go to the next level!")
-                    break
+        if num_correct + num_incorrect == 10:
+            percentage_correct = num_correct / (num_correct + num_incorrect) * 100
+            if percentage_correct < 75:
+                print("Please ask your teacher for extra help.")
+            else:
+                print("Congratulations, you are ready to go to the next level!")
                 break
+            break
 
 
 main()
